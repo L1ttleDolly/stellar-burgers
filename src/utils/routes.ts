@@ -9,6 +9,7 @@ export enum AbsoluteAppRoute {
   Feed = '/feed',
   FeedNumber = '/feed/:number',
   Profile = '/profile',
+  ProfileOrders = '/profile/orders',
   ProfileOrdersNumber = '/profile/orders/:number',
   Login = '/login',
   Register = '/register',

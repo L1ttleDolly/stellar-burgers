@@ -3,7 +3,5 @@ import { getOrdersApi } from '@api';
 
 export const fetchUserOrders = createAsyncThunk(
   'feeds/fetchUserOrders',
-  async function () {
-    return await getOrdersApi();
-  }
+  getOrdersApi
 );

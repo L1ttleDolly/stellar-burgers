@@ -44,7 +44,6 @@ const App = () => {
       dispatch(setUserCheck(true));
     }
     dispatch(fetchIngredients());
-    dispatch(fetchFeeds());
   }, [dispatch]);
 
   return (
@@ -64,6 +63,7 @@ const App = () => {
         >
           <Route index element={<Profile />} />
           <Route path='orders' element={<ProfileOrders />} />
+          <Route path='orders/:number' element={<OrderInfo />} />
         </Route>
 
         <Route
@@ -98,6 +98,7 @@ const App = () => {
         />
         <Route path={AbsoluteAppRoute.FeedNumber} element={<OrderInfo />} />
       </Routes>
+
       {backgroundLocation && (
         <Routes>
           <Route
@@ -121,9 +122,11 @@ const App = () => {
           <Route
             path={AbsoluteAppRoute.ProfileOrdersNumber}
             element={
-              <Modal title={''} onClose={() => navigate(-1)}>
-                <OrderInfo />
-              </Modal>
+              <ProtectedRoute>
+                <Modal title={''} onClose={() => navigate(-1)}>
+                  <OrderInfo />
+                </Modal>
+              </ProtectedRoute>
             }
           />
         </Routes>
