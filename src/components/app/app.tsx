@@ -123,7 +123,10 @@ const App = () => {
             path={AbsoluteAppRoute.ProfileOrdersNumber}
             element={
               <ProtectedRoute>
-                <Modal title={''} onClose={() => navigate(-1)}>
+                <Modal
+                  title={'Информация о заказе'}
+                  onClose={() => navigate(-1)}
+                >
                   <OrderInfo />
                 </Modal>
               </ProtectedRoute>
