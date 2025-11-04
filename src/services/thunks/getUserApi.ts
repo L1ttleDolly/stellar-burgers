@@ -4,7 +4,7 @@ import { setUserCheck } from '../slices/userSlice';
 
 export const getUser = createAsyncThunk(
   'user/getUser',
-  async (_, { dispatch }) => {
+  async function (_, { dispatch }) {
     try {
       const user = await getUserApi();
       return user;

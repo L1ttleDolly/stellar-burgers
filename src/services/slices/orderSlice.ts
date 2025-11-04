@@ -6,6 +6,7 @@ interface IOrder {
   order: TOrder | null;
   success: boolean;
   isLoading: boolean;
+  clearConstructor: boolean;
   error: string | null;
 }
 
@@ -13,6 +14,7 @@ const initialState: IOrder = {
   order: null,
   success: false,
   isLoading: false,
+  clearConstructor: false,
   error: null
 };
 

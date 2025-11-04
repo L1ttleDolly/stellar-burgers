@@ -41,8 +41,10 @@ export const constructorSlice = createSlice({
     },
 
     clearConstructor(state, action) {
-      state.constructorItems.ingredients = [];
-      state.constructorItems.bun = null;
+      if (action.payload === true) {
+        state.constructorItems.ingredients = [];
+        state.constructorItems.bun = null;
+      }
     },
 
     updateIngredientsPosition(state, action) {
