@@ -19,7 +19,7 @@ import {
   useLocation,
   useNavigate
 } from 'react-router-dom';
-import { useDispatch, useSelector } from '../../services/store';
+import { useDispatch } from '../../services/store';
 import { useEffect } from 'react';
 import { fetchIngredients } from '../../services/thunks/fetchIngredients';
 import { ProtectedRoute } from '../protected-route/ProtectedRoute';
@@ -35,7 +35,6 @@ const App = () => {
   const dispatch = useDispatch();
 
   const backgroundLocation = location.state?.backgroundLocation;
-  const user = useSelector((state) => state.user.user);
 
   useEffect(() => {
     const token = getCookie('accessToken');
@@ -46,8 +45,6 @@ const App = () => {
     }
     dispatch(fetchIngredients());
   }, [dispatch]);
-
-  console.log('getUser', user);
 
   return (
     <div className={styles.app}>
@@ -126,7 +123,7 @@ const App = () => {
             path={AbsoluteAppRoute.ProfileOrdersNumber}
             element={
               <ProtectedRoute>
-                <Modal title={'Детали заказа'} onClose={() => navigate(-1)}>
+                <Modal title={''} onClose={() => navigate(-1)}>
                   <OrderInfo />
                 </Modal>
               </ProtectedRoute>
