@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { TIngredient } from '@utils-types';
 import { fetchIngredients } from '../thunks/fetchIngredients';
+import { Simulate } from 'react-dom/test-utils';
+import error = Simulate.error;
 
 interface IngredientsState {
   ingredientsArr: TIngredient[];
@@ -26,6 +28,11 @@ export const ingredientsSlice = createSlice({
     builder.addCase(fetchIngredients.fulfilled, (state, action) => {
       state.status = 'done';
       state.ingredientsArr = action.payload;
+      state.error = null;
+    });
+    builder.addCase(fetchIngredients.rejected, (state, action) => {
+      state.status = 'Произошла ошибка';
+      state.error = 'Произошла ошибка';
     });
   }
 });

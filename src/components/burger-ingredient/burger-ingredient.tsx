@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import { BurgerIngredientUI } from '@ui';
 import { TBurgerIngredientProps } from './type';
-import { useDispatch } from '../../services/store';
+import { useDispatch, useSelector } from '../../services/store';
 import { addItem } from '../../services/slices/constructorSlice';
 
 export const BurgerIngredient: FC<TBurgerIngredientProps> = memo(
@@ -16,12 +16,15 @@ export const BurgerIngredient: FC<TBurgerIngredientProps> = memo(
       dispatch(addItem(ingredient));
     };
 
+    const dataCy = ingredient._id;
+
     return (
       <BurgerIngredientUI
         ingredient={ingredient}
         count={count}
         locationState={{ background: location }}
         handleAdd={handleAdd}
+        dataCy={dataCy}
       />
     );
   }

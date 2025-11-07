@@ -28,6 +28,7 @@ export const BurgerConstructor: FC = () => {
       return navigate('/login', { state: { from: location.pathname } });
     } else {
       dispatch(createOrder(order));
+      console.log(order);
     }
   };
 

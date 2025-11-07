@@ -12,7 +12,7 @@ import feedsSlice from './slices/feedsSlice';
 import userSlice from './slices/userSlice';
 import orderSlice from './slices/orderSlice';
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   ingredients: ingredientsReducer,
   constructorSlice: constructorSlice,
   feeds: feedsSlice,
